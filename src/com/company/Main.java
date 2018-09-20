@@ -281,12 +281,28 @@ public class Main {
         }
         String data3 = data3sb.toString();
         System.out.println(data3sb.toString());
-//        String[] list3 = data3.split("\t");
-//        StringBuilder data4sb = new StringBuilder();
-//        for (int i = 0; i<list2.length; i++){
-//            if ((i+1)%10 == ){}
-//            System.out.println(list3[i]);
-//        }
+        StringBuilder data4sb = new StringBuilder();
+        for(int i = 1; i<data3sb.length(); i++){
+            String charchek = data3sb.substring(i-1, i);
+            if(charchek.equals("*") || charchek.equals("|") || charchek.equals("#")){
+                data4sb.append(" ");
+            }
+            else{
+                data4sb.append(charchek);
+            }
+        }
+        System.out.println(data4sb.toString());
+        StringBuilder data5sb = new StringBuilder();
+        for(int i = 1; 3*i<data4sb.length(); i++){
+            String charcheck1 = data4sb.substring(3*i-3, 3*i-2);
+            String charcheck2 = data4sb.substring(3*i-2, 3*i-1);
+            String charcheck3 = data4sb.substring(3*i-1, 3*i);
+
+            data5sb.append(charcheck3);
+            data5sb.append(charcheck2);
+            data5sb.append(charcheck1);
+        }
+        System.out.println(data5sb);
     }
 
 }
