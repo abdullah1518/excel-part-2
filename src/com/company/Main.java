@@ -265,6 +265,7 @@ public class Main {
         }
         String data2 = data2sb.toString();
         System.out.println(data2);
+
         String[] list2 = data2.split("\t");
         StringBuilder data3sb = new StringBuilder();
         for(int i = 0; i<list2.length; i++){
@@ -281,6 +282,7 @@ public class Main {
         }
         String data3 = data3sb.toString();
         System.out.println(data3sb.toString());
+
         StringBuilder data4sb = new StringBuilder();
         for(int i = 1; i<data3sb.length(); i++){
             String charchek = data3sb.substring(i-1, i);
@@ -292,15 +294,27 @@ public class Main {
             }
         }
         System.out.println(data4sb.toString());
-        StringBuilder data5sb = new StringBuilder();
-        for(int i = 1; 3*i<data4sb.length(); i++){
-            String charcheck1 = data4sb.substring(3*i-3, 3*i-2);
-            String charcheck2 = data4sb.substring(3*i-2, 3*i-1);
-            String charcheck3 = data4sb.substring(3*i-1, 3*i);
+        String data4 = data4sb.toString();
+        String[] listd = data4.split("\t");
+        StringBuilder datesb = new StringBuilder();
+        for(int i=0; i<listd.length; i++){
+            if((i+1)%10 == 3) {
+                datesb.append(listd[i]);
+                datesb.append("/");
+            }
+        }
+        String date = datesb.toString();
+        System.out.println(date);
 
-            data5sb.append(charcheck3);
-            data5sb.append(charcheck2);
-            data5sb.append(charcheck1);
+        StringBuilder data5sb = new StringBuilder();
+        String[] list3 = date.split("/");
+        for(int i = 1; 3*i<list3.length; i++){
+            data5sb.append(list3[(3*i)-3]);
+            data5sb.append("/");
+            data5sb.append(list3[(3*i)-2]);
+            data5sb.append("/");
+            data5sb.append(list3[(3*i)-1]);
+            data5sb.append("\t");
         }
         System.out.println(data5sb);
     }
