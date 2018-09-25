@@ -295,6 +295,7 @@ public class Main {
         }
         System.out.println(data4sb.toString());
         String data4 = data4sb.toString();
+
         String[] listd = data4.split("\t");
         StringBuilder datesb = new StringBuilder();
         for(int i=0; i<listd.length; i++){
@@ -309,14 +310,49 @@ public class Main {
         StringBuilder data5sb = new StringBuilder();
         String[] list3 = date.split("/");
         for(int i = 1; 3*i<list3.length; i++){
-            data5sb.append(list3[(3*i)-3]);
-            data5sb.append("/");
-            data5sb.append(list3[(3*i)-2]);
-            data5sb.append("/");
+            data5sb.append("'");
             data5sb.append(list3[(3*i)-1]);
+            data5sb.append("-");
+            data5sb.append(list3[(3*i)-2]);
+            data5sb.append("-");
+            data5sb.append(list3[(3*i)-3]);
+            data5sb.append("\t");
+            data5sb.append(" 16:2:12");
+            data5sb.append("'");
             data5sb.append("\t");
         }
         System.out.println(data5sb);
+        String data5 = data5sb.toString();
+
+        //final insert
+        String[] ilist1 = data4.split("\t");
+        String[] ilist2 = data5.split("\t");
+        StringBuilder finaldatasb = new StringBuilder();
+        int k = 0;
+        for (int i=0; i<ilist2.length; i++){
+            if ((i+1)%10 == 1){
+                finaldatasb.append("(");
+                finaldatasb.append(ilist1[i]);
+                finaldatasb.append("\t");
+            }
+            if ((i+1)%10 == 3){
+                finaldatasb.append(ilist2[k]);
+                finaldatasb.append("\t");
+                k++;
+            }
+            if ((i+1)%10 == 10){
+                finaldatasb.append(ilist1[i]);
+                finaldatasb.append(")");
+                finaldatasb.append(",");
+                finaldatasb.append("\t");
+            }
+            else {
+                finaldatasb.append(ilist1[i]);
+                finaldatasb.append("\t");
+            }
+        }
+        String finaldata = finaldatasb.toString();
+        System.out.println(finaldata);
     }
 
 }
