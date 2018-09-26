@@ -316,7 +316,7 @@ public class Main {
             data5sb.append(list3[(3*i)-2]);
             data5sb.append("-");
             data5sb.append(list3[(3*i)-3]);
-            data5sb.append("\t");
+            data5sb.append(" ");
             data5sb.append(" 16:2:12");
             data5sb.append("'");
             data5sb.append("\t");
@@ -324,8 +324,30 @@ public class Main {
         System.out.println(data5sb);
         String data5 = data5sb.toString();
 
+        String[] list4 = data4.split("\t");
+        StringBuilder namesb = new StringBuilder();
+        for (int i=0; i<list4.length; i++){
+            if (i%10 == 1){
+                namesb.append(list4[i]);
+                namesb.append("\t");
+            }
+        }
+        String name1 = namesb.toString();
+
+        StringBuilder name2sb = new StringBuilder();
+        for(int i = 1; i<name1.length(); i++){
+            String charchek = name1.substring(i-1, i);
+            if(charchek.equals(" ")){
+                name2sb.append("+");
+            }
+            else{
+                name2sb.append(charchek);
+            }
+        }
+        System.out.println(name2sb.toString());
+
         //final insert
-        String[] ilist1 = data4.split("\t");
+        /*String[] ilist1 = data4.split("\t");
         String[] ilist2 = data5.split("\t");
         StringBuilder finaldatasb = new StringBuilder();
         int k = 0;
@@ -340,19 +362,19 @@ public class Main {
                 finaldatasb.append("\t");
                 k++;
             }
-            if ((i+1)%10 == 10){
+            if ((i+1)%10 == 0){
                 finaldatasb.append(ilist1[i]);
                 finaldatasb.append(")");
                 finaldatasb.append(",");
                 finaldatasb.append("\t");
             }
-            else {
+            if(!(((i+1)%10 == 3) ||((i+1)%10 == 1) || ((i+1)%10 == 0) )) {
                 finaldatasb.append(ilist1[i]);
                 finaldatasb.append("\t");
             }
         }
         String finaldata = finaldatasb.toString();
-        System.out.println(finaldata);
+        System.out.println(finaldata);*/
     }
 
 }
