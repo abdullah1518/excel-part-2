@@ -335,10 +335,18 @@ public class Main {
         String name1 = namesb.toString();
 
         StringBuilder name2sb = new StringBuilder();
-        for(int i = 1; i<name1.length(); i++){
-            String charchek = name1.substring(i-1, i);
-            if(charchek.equals(" ")){
-                name2sb.append("+");
+        for(int i = 3; i<name1.length(); i++){
+            String charchek = name1.substring(i-3, i-2);
+            String charchek2 = name1.substring(i-2, i-1);
+            String charchek3 = name1.substring(i-1, i);
+            if(charchek.equals(" ") && charchek2.equals(" ") && charchek3.equals(" ")){
+
+            }
+            if(charchek.equals(" ") && charchek2.equals(" ")){
+
+            }
+            if(charchek2.equals(" ") && charchek3.equals(" ")){
+
             }
             else{
                 name2sb.append(charchek);
@@ -346,35 +354,74 @@ public class Main {
         }
         System.out.println(name2sb.toString());
 
+        String name2 = name2sb.toString();
+        StringBuilder name3sb = new StringBuilder();
+        for(int i = 2; i<name2.length(); i++){
+            String charchek = name2.substring(i-2, i-1);
+            String charchek2 = name2.substring(i-1, i);
+            if(charchek.equals(" ") && charchek2.equals(" ") ){
+
+            }
+
+            else{
+                name3sb.append(charchek);
+            }
+        }
+        System.out.println(name3sb.toString());
+
+        String name3 = name3sb.toString();
+        StringBuilder name4sb = new StringBuilder();
+        for(int i = 1; i<name3.length(); i++){
+            String charchek = name3.substring(i-1, i);
+            if(charchek.equals(" ")){
+                name4sb.append("','");
+            }
+
+            else{
+                name4sb.append(charchek);
+            }
+        }
+        System.out.println(name4sb.toString());
+        String name4 = name4sb.toString();
+
         //final insert
-        /*String[] ilist1 = data4.split("\t");
+        String[] ilist1 = data4.split("\t");
         String[] ilist2 = data5.split("\t");
+        String[] ilist3 = name4.split("\t");
         StringBuilder finaldatasb = new StringBuilder();
         int k = 0;
+        int y = 0;
         for (int i=0; i<ilist2.length; i++){
             if ((i+1)%10 == 1){
                 finaldatasb.append("(");
                 finaldatasb.append(ilist1[i]);
-                finaldatasb.append("\t");
+                finaldatasb.append(",");
+            }
+            if ((i+1)%10 == 2){
+                finaldatasb.append(ilist3[y]);
+                finaldatasb.append(",");
+                y++;
             }
             if ((i+1)%10 == 3){
                 finaldatasb.append(ilist2[k]);
-                finaldatasb.append("\t");
+                finaldatasb.append(",");
                 k++;
+            }
+            if ((i+1)%10 == 6 || (i+1)%10 == 7 || (i+1)%10 == 8 || (i+1)%10 == 9){
+
             }
             if ((i+1)%10 == 0){
                 finaldatasb.append(ilist1[i]);
                 finaldatasb.append(")");
                 finaldatasb.append(",");
-                finaldatasb.append("\t");
             }
-            if(!(((i+1)%10 == 3) ||((i+1)%10 == 1) || ((i+1)%10 == 0) )) {
+            if(!(((i+1)%10 == 3) || ((i+1)%10 == 1) || ((i+1)%10 == 0) || ((i+1)%10 == 2) || (i+1)%10 == 6 || (i+1)%10 == 7 || (i+1)%10 == 8 || (i+1)%10 == 9)) {
                 finaldatasb.append(ilist1[i]);
-                finaldatasb.append("\t");
+                finaldatasb.append(",");
             }
         }
         String finaldata = finaldatasb.toString();
-        System.out.println(finaldata);*/
+        System.out.println(finaldata);
     }
 
 }
