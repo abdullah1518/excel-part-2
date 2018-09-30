@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Main {
 
+    public static void yeet(){
+        System.out.println("yeet");
+    }
     public static void main(String[] args) {
         String data = "1\tLAKISHA # TOMBLIN\t8/6/1961\tF\t2\tAdministrative Clerk\tProvides administrative support\tH\t $55.00 \tl_tomblin@nnl.com\n" +
                 "2\tKRIS|SWEELY\t12/24/1980\tM\t3\tHR Clerk\tProvides support to the HR Manager\tHourly\t $35.00 \tk_sweely@yahoo.com\n" +
@@ -264,7 +267,7 @@ public class Main {
             data2sb.append("\t");
         }
         String data2 = data2sb.toString();
-        System.out.println(data2);
+        System.out.println("data2: "+data2);
 
         String[] list2 = data2.split("\t");
         StringBuilder data3sb = new StringBuilder();
@@ -281,7 +284,7 @@ public class Main {
             }
         }
         String data3 = data3sb.toString();
-        System.out.println(data3sb.toString());
+        System.out.println("data3: "+data3);
 
         StringBuilder data4sb = new StringBuilder();
         for(int i = 1; i<data3sb.length(); i++){
@@ -293,7 +296,7 @@ public class Main {
                 data4sb.append(charchek);
             }
         }
-        System.out.println(data4sb.toString());
+        System.out.println("data4: "+data4sb.toString());
         String data4 = data4sb.toString();
 
         String[] listd = data4.split("\t");
@@ -305,7 +308,7 @@ public class Main {
             }
         }
         String date = datesb.toString();
-        System.out.println(date);
+        System.out.println("date: "+date);
 
         StringBuilder data5sb = new StringBuilder();
         String[] list3 = date.split("/");
@@ -313,17 +316,15 @@ public class Main {
             data5sb.append("'");
             data5sb.append(list3[(3*i)-1]);
             data5sb.append("-");
-            data5sb.append(list3[(3*i)-2]);
-            data5sb.append("-");
             data5sb.append(list3[(3*i)-3]);
-            data5sb.append(" ");
+            data5sb.append("-");
+            data5sb.append(list3[(3*i)-2]);
             data5sb.append(" 16:2:12");
             data5sb.append("'");
             data5sb.append("\t");
         }
-        System.out.println(data5sb);
         String data5 = data5sb.toString();
-
+        System.out.println("data5: "+data5);
         String[] list4 = data4.split("\t");
         StringBuilder namesb = new StringBuilder();
         for (int i=0; i<list4.length; i++){
@@ -348,11 +349,19 @@ public class Main {
             if(charchek2.equals(" ") && charchek3.equals(" ")){
 
             }
-            else{
+            if(i==3) {
+                name2sb.append("'");
+            }
+            if(i+1 == name1.length()){
                 name2sb.append(charchek);
+                name2sb.append(charchek2);
+                name2sb.append(charchek3);
+            }
+            else{
+                name2sb.append(charchek2);
             }
         }
-        System.out.println(name2sb.toString());
+        System.out.println("name2: "+name2sb.toString());
 
         String name2 = name2sb.toString();
         StringBuilder name3sb = new StringBuilder();
@@ -367,7 +376,7 @@ public class Main {
                 name3sb.append(charchek);
             }
         }
-        System.out.println(name3sb.toString());
+        System.out.println("name3: "+name3sb.toString());
 
         String name3 = name3sb.toString();
         StringBuilder name4sb = new StringBuilder();
@@ -381,7 +390,7 @@ public class Main {
                 name4sb.append(charchek);
             }
         }
-        System.out.println(name4sb.toString());
+        System.out.println("name4: "+name4sb.toString());
         String name4 = name4sb.toString();
 
         //final insert
@@ -391,7 +400,7 @@ public class Main {
         StringBuilder finaldatasb = new StringBuilder();
         int k = 0;
         int y = 0;
-        for (int i=0; i<ilist2.length; i++){
+        for (int i=0; i<ilist1.length; i++){
             if ((i+1)%10 == 1){
                 finaldatasb.append("(");
                 finaldatasb.append(ilist1[i]);
@@ -403,7 +412,7 @@ public class Main {
                 y++;
             }
             if ((i+1)%10 == 3){
-                finaldatasb.append(ilist2[k]);
+                if (k<ilist2.length){finaldatasb.append(ilist2[k]);}
                 finaldatasb.append(",");
                 k++;
             }
@@ -421,7 +430,8 @@ public class Main {
             }
         }
         String finaldata = finaldatasb.toString();
-        System.out.println(finaldata);
+        System.out.println("finaldata: "+finaldata);
+        yeet();
     }
 
 }
